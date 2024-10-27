@@ -1,7 +1,9 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+
 import { z } from 'zod';
+import { formSchema } from './RegisterForm.form';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -14,44 +16,37 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 
-import { formSchema } from './LoginForm.form';
-import { useState } from 'react';
-import FormError from './FormError/FormError';
-
-export function LoginForm() {
-	const [error, setError] = useState<string | undefined>('');
-
+export function RegisterForm() {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			email: '',
 			password: '',
+			repeatPassword: '',
 		},
 	});
 
 	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		// TODO: put set error
+		// Do something with the form values.
+		// ✅ This will be type-safe and validated.
 		console.log(values);
 	};
 
 	return (
 		<Form {...form}>
-			<form
-				onSubmit={form.handleSubmit(onSubmit)}
-				className="flex flex-col w-full gap-4"
-			>
+			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 				<FormField
 					control={form.control}
 					name="email"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Email</FormLabel>
+							<FormLabel>Username</FormLabel>
 							<FormControl>
 								<Input
-									placeholder="example@example.com"
+									placeholder="Correo electronico"
 									{...field}
-									className="h-14 text-white"
 									type="email"
+									className="h-14 text-white"
 								/>
 							</FormControl>
 							<FormMessage />
@@ -66,7 +61,7 @@ export function LoginForm() {
 							<FormLabel>Password</FormLabel>
 							<FormControl>
 								<Input
-									placeholder="password"
+									placeholder="Password"
 									{...field}
 									type="password"
 									className="h-14 text-white"
@@ -76,9 +71,26 @@ export function LoginForm() {
 						</FormItem>
 					)}
 				/>
-				<FormError message={error} />
+				<FormField
+					control={form.control}
+					name="repeatPassword"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Repeat Password</FormLabel>
+							<FormControl>
+								<Input
+									placeholder="Repeat Password"
+									{...field}
+									type="password"
+									className="h-14 text-white"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
 				<Button type="submit" className="w-full bg-[#E50914]">
-					Iniciar Sesión
+					Registrarse
 				</Button>
 			</form>
 		</Form>
