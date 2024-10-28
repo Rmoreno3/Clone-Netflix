@@ -3,14 +3,16 @@ import Link from 'next/link';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Terms } from '../components/Terms';
 import { LoginForm } from './LoginForm';
+import { auth } from '@/auth';
 
-export default function LoginPage() {
+export default async function LoginPage() {
+	const session = await auth();
 	return (
 		<div>
 			<p className="text-3xl font-bold text-left mb-7">Iniciar Sesion</p>
 
 			<LoginForm />
-
+			<p>session: {JSON.stringify(session)}</p>
 			<div className="mt-5 text-center">
 				<Link href="/" className="hover:underline hover:opacity-70">
 					Has olvidado tu contraseña?

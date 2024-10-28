@@ -17,6 +17,8 @@ import { Input } from '@/components/ui/input';
 import { formSchema } from './LoginForm.form';
 import { useState } from 'react';
 import FormError from './FormError/FormError';
+import { login } from '@/actions/login';
+import { toast } from '@/hooks/use-toast';
 
 export function LoginForm() {
 	const [error, setError] = useState<string | undefined>('');
@@ -29,9 +31,19 @@ export function LoginForm() {
 		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
-		// TODO: put set error
-		console.log(values);
+	const onSubmit = async (values: z.infer<typeof formSchema>) => {
+		try {
+			login(values).then(data => {
+				setError(data?.error);
+				if (data?.success) {
+					toast({
+						title: 'Sesión iniciada correctamente',
+					});
+				}
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
