@@ -25,7 +25,7 @@ import { UserNetflix } from '@prisma/client';
 
 export function Profiles(props: ProfilesProps) {
 	const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
-	console.log(currentUser);
+
 	const { users } = props;
 	const [manageProfiles, setManageProfiles] = useState(false);
 	const router = useRouter();
@@ -42,7 +42,7 @@ export function Profiles(props: ProfilesProps) {
 			router.refresh();
 		} catch (error) {
 			console.log(error);
-			toast({ title: 'Oops a ocurrido un error', variant: 'destructive' });
+			toast({ title: 'Oops a ocurrido un error❌', variant: 'destructive' });
 		}
 	};
 
@@ -52,7 +52,7 @@ export function Profiles(props: ProfilesProps) {
 				{users.map(user => (
 					<div
 						key={user.id}
-						className="text-center relative cursosr-pointer"
+						className="text-center relative cursor-pointer"
 						onClick={() => setCurrentUser(user)}
 					>
 						<Image

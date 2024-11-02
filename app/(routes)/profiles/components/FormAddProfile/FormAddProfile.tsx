@@ -43,15 +43,15 @@ export function FormAddProfile(props: FormAddProfileProps) {
 			const response = await axios.post('/api/userNetflix', values);
 
 			if (response.status !== 200) {
-				toast({ title: 'oops a ocurrido un error', variant: 'destructive' });
+				toast({ title: 'oops a ocurrido un error❌', variant: 'destructive' });
 			} else {
-				toast({ title: 'usuario creado correctamente' });
+				toast({ title: 'usuario creado correctamente✅' });
 			}
 			router.refresh();
 			setOpen(false);
 		} catch (error) {
 			console.log(error);
-			toast({ title: 'Oops a ocurrido un error', variant: 'destructive' });
+			toast({ title: 'Oops a ocurrido un error❌', variant: 'destructive' });
 			setIsLoading(false);
 		}
 	};
