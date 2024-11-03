@@ -38,7 +38,7 @@ export function RegisterForm() {
 			await axios.post('api/auth/register', values);
 
 			toast({
-				title: 'El usuario se ha registrado correctamente',
+				title: 'El usuario se ha registrado correctamente ✅',
 			});
 
 			router.push('/profiles');

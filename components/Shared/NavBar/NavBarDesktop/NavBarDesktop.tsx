@@ -5,11 +5,12 @@ import { Logo } from '@/components/Shared/Logo';
 import { itemsNavBar } from '@/data/itemsNavbar';
 import Link from 'next/link';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
-import { useCurrentNetflixUser } from '@/hooks/use-current-user';
+import { NavBarDesktopProps } from './NavbarDesktop.types';
+import { SelectorProfile } from '@/components/Shared/SelectorProfile';
 
-export default function NavBarDesktop() {
+export default function NavBarDesktop(props: NavBarDesktopProps) {
+	const { users } = props;
 	const scrollPosition = useScrollPosition();
-	const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
 
 	return (
 		<div
@@ -37,9 +38,8 @@ export default function NavBarDesktop() {
 					<div className="flex gap-4 items-center">
 						<Search className="cursor-pointer" />
 						<BellRing className="cursor-pointer" />
-						<div className="flex gap-2 items-center">
-							{/* TODO: ADD USER PROFILE*/}
-							<p>{currentUser?.profileName}</p>
+						<div className="flex gap-2 items-center cursor-pointer">
+							<SelectorProfile users={users} />
 						</div>
 					</div>
 				</div>
