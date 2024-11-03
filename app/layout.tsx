@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Toaster } from '@/components/ui/toaster';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Analytics } from '@vercel/analytics/react';
 
 import './globals.css';
 
