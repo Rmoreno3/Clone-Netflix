@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic';
 import { InfoExtraFilmProps } from './InfoExtraFilm.types';
 import { AcctionsButtonsFilm } from '@/components/Shared/AcctionsButtonsFilm/AcctionsButtonsFilm';
+import { ChaptersInfo } from '@/components/Shared/ChaptersInfo';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 export default function InfoExtraFilm(props: InfoExtraFilmProps) {
@@ -25,6 +26,7 @@ export default function InfoExtraFilm(props: InfoExtraFilmProps) {
 
 			<div className="p-4 shadow-lg">
 				<AcctionsButtonsFilm idFilm={movie.id} />
+				<ChaptersInfo age={movie.age} duration={movie.duration} />
 			</div>
 		</div>
 	);
