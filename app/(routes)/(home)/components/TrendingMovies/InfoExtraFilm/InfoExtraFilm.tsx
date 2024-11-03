@@ -1,6 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { InfoExtraFilmProps } from './InfoExtraFilm.types';
+import { AcctionsButtonsFilm } from '@/components/Shared/AcctionsButtonsFilm/AcctionsButtonsFilm';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 export default function InfoExtraFilm(props: InfoExtraFilmProps) {
@@ -22,7 +23,9 @@ export default function InfoExtraFilm(props: InfoExtraFilmProps) {
 				/>
 			</div>
 
-			<div className="p-4 shadow-lg"></div>
+			<div className="p-4 shadow-lg">
+				<AcctionsButtonsFilm idFilm={movie.id} />
+			</div>
 		</div>
 	);
 }
