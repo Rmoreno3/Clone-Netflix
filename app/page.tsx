@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 
 import { NavBar } from '@/components/Shared/NavBar';
 import { SliderVideo } from './(routes)/(home)/components/SliverVideo/SliderVideo';
+import { TrendingMovies } from './(routes)/(home)/components/TrendingMovies/TrendingMovies';
 
 export default async function Home() {
 	const session = await auth();
@@ -29,6 +30,7 @@ export default async function Home() {
 		<div className="relative bg-zinc-900">
 			<NavBar users={userNetflix} />
 			<SliderVideo />
+			<TrendingMovies movies={trendingMovies} />
 		</div>
 	);
 }
