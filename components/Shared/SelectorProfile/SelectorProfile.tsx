@@ -45,7 +45,7 @@ export function SelectorProfile(props: SelectorProfileProps) {
 						className="flex gap-2 mb-3 group cursor-pointer"
 					>
 						<Image
-							src={user.avatarUrl}
+							src={user.avatarUrl ?? '/profiles/profile-1.png'}
 							alt="Profile image"
 							width={30}
 							height={30}

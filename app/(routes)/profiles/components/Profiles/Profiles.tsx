@@ -24,7 +24,7 @@ import { useCurrentNetflixUser } from '@/hooks/use-current-user';
 import { UserNetflix } from '@prisma/client';
 
 export function Profiles(props: ProfilesProps) {
-	const { changeCurrentUser, currentUser } = useCurrentNetflixUser();
+	const { changeCurrentUser } = useCurrentNetflixUser();
 
 	const { users } = props;
 	const [manageProfiles, setManageProfiles] = useState(false);
