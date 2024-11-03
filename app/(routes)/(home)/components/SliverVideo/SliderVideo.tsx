@@ -19,13 +19,12 @@ function SliderVideo() {
 			>
 				<div className="pt-24 md:pt-0">
 					<h2 className="text-2xl md:text-5xl lg:text-8xl font-bold drop-shadow-xl">
-						TarreDev
+						NetFlix Clone
 					</h2>
 					<p className="max-w-md mt-2 text-xs md:text-base">
-						Aprende a crear desde cero un clon de Netflix con todas sus
-						funciones clave, desde la gestión de usuarios hasta la reproducción
-						de videos, mientras descubres los secretos detrás de una plataforma
-						de streaming exitosa.
+						Clon de Netflix con todas sus funciones clave, desde la gestión de
+						usuarios hasta la reproducción de videos, lista de peliculas
+						favoritas, populares y mucho mas.
 					</p>
 					<div className="flex flex-col md:flex-row gap-4 mt-5">
 						<Button size="lg" variant="secondary">
